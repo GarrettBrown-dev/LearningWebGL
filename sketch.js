@@ -5,8 +5,12 @@ function setup() {
 }
 
 function draw() {
-  pointLight(0, 0, 255, -200, 0, 250);
-  pointLight(255, 0, 0, 200, 0, 250);
+  let dx = mouseX - width / 2;
+  let dy = mouseY - height / 2;
+  let v = createVector(dx, dy, 0);
+  v.div(100);
+  directionalLight(255, 255, v);
+  // pointLight(255, 0, 0, 200, 0, 250);
   background(175);
 
   rotateX(angle);
@@ -15,7 +19,7 @@ function draw() {
 
   noStroke();
   ambientMaterial(255);
-  sphere(100);
+  torus(100, 25);
 
   angle += 0.03;
 }
